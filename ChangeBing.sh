@@ -24,6 +24,17 @@ lang="zh-CN"
 
 #desktop=yes
 
+#修改应用程序登录壁纸，需要修的的就把对应的程序名前的#去掉
+AudioStation=yes
+DownloadStation=yes
+FileStation=yes
+SynologyDrive=yes
+SynologyPhotos=yes
+VideoStation=yes
+
+
+
+
 #-------------这段是增加每执行一次，就更换一张壁纸-------------------
 # 指定包含acc.txt文件的文件夹路径,必须要指定此文件夹路径  
 wap_folder="/volume2/Download/Wallpaper/Bing"  
@@ -139,4 +150,46 @@ ln -sf /usr/syno/synoman/webman/resources/images/2x/default_wallpaper/dsm7_01.jp
 #5.1
 ln -sf /usr/syno/synoman/webman/resources/images/2x/default_wallpaper/dsm7_01.jpg /usr/syno/synoman/webman/resources/images/default_wallpaper/01.jpg
 ln -sf /usr/syno/synoman/webman/resources/images/2x/default_wallpaper/dsm7_01.jpg /usr/syno/synoman/webman/resources/images/default_wallpaper/02.jpg
+fi
+
+#修改应用程序登录壁纸
+#AudioStation
+if [ "$AudioStation" == "yes" ]
+then echo "[x]Applying user AudioStation wallpaper..."
+cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.SDS.AudioStation.Application_login_background.jpg
+fi
+
+#修改应用程序登录壁纸
+#DownloadStation
+if [ "$DownloadStation" == "yes" ]
+then echo "[x]Applying user DownloadStation wallpaper..."
+cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.SDS.DownloadStation.Application_login_background.jpg
+fi
+
+#修改应用程序登录壁纸
+#FileStation
+if [ "$FileStation" == "yes" ]
+then echo "[x]Applying user FileStation wallpaper..."
+cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.SDS.App.FileStation3.Instance_login_background.jpg
+fi
+
+#修改应用程序登录壁纸
+#SynologyDrive
+if [ "$SynologyDrive" == "yes" ]
+then echo "[x]Applying user SynologyDrive wallpaper..."
+cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.SDS.SheetStation.Application_login_background.jpg
+fi
+
+#修改应用程序登录壁纸
+#SynologyPhotos
+if [ "$SynologyPhotos" == "yes" ]
+then echo "[x]Applying user SynologyPhotos wallpaper..."
+cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.Foto.AppInstance_login_background.jpg
+fi
+
+#修改应用程序登录壁纸
+#VideoStation
+if [ "$SynologyPhotos" == "yes" ]
+then echo "[x]Applying user VideoStation wallpaper..."
+cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.SDS.VideoStation.AppInstance_login_background.jpg
 fi
