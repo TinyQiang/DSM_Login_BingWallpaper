@@ -14,9 +14,22 @@
 # 然后在计划任务中填写脚本的地址来执行脚本。
 ![脚本使用说明.png](https://s2.loli.net/2024/03/15/jKECAV2M3tnlqH4.jpg)
   
-可以通过选中脚本，然后查看运行结果，正常运行应该和下面一样，就是数值不一样。
+可以通过选中脚本，然后查看运行结果，正常运行应该和下来一样，就是数值不一样。
 ![查看脚本执行结果.png](https://s2.loli.net/2024/03/15/9iLoI84W2vyCblq.png)
 
+# 增加修改应用登录背景图片的功能  
+> 打开脚本，找到这一段
+```sh
+#修改应用程序登录壁纸，需要修的的就把对应的程序名前的#去掉
+AudioStation=yes
+DownloadStation=yes
+FileStation=yes
+SynologyDrive=yes
+SynologyPhotos=yes
+VideoStation=yes
+```
+这里默认是修改应用背景，如果不需要修改应用背景，则在对应的应用名称前面加上#号即可。  
+> 如果没有效果，先在在群晖里面应用登录设置里面随便自定义选择一个壁纸，保存后再试。
 
 # 登录框透明脚本
 ```sh
