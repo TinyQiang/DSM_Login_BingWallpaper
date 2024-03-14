@@ -1,4 +1,9 @@
 # DSM_Login_BingWallpaper
+>  在这个项目上改的[DSM_Login_BingWallpaper](https://github.com/kkkgo/DSM_Login_BingWallpaper)
+
+在原来脚本的基础上，增加一个文件用来记录执行次数。每执行一次就更换下一张Bing壁纸。  
+这样可以设置成每小时执行一次，就每小时换一次壁纸。  
+# 我本人不会脚本，修改脚本全靠文心一言提问来完成。  
 
 # 注意
 不要将代码直接写入到脚本处，执行可能会出错。  
