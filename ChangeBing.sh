@@ -24,12 +24,50 @@ lang="zh-CN"
 
 #desktop=yes
 
+#-------------这段是增加每执行一次，就更换一张壁纸-------------------
+# 指定包含acc.txt文件的文件夹路径,必须要指定此文件夹路径  
+wap_folder="/volume2/Download/Wallpaper/Bing"  
+
+acc_file="${wap_folder}/acc.txt" 
+
+# 检查acc.txt文件是否存在,此文件用来记录执行次数  
+if [[ ! -f "$acc_file" ]]; then  
+    # 如果文件不存在，则创建并写入初始值0  
+    echo "0" > "$acc_file"  
+    n=0  
+else  
+    # 读取acc.txt文件中的当前值  
+    n=$(cat "$acc_file")  
+  
+    # 检查是否读取到有效的数字,没有就写入0  
+    if ! [[ "$n" =~ ^[0-8]+$ ]]; then  
+        n=0  
+        echo "$n" > "$acc_file" 
+    fi  
+fi 
+
+# 如果当前值等于8，则重置为0  
+if [[ $n -eq 8 ]]; then  
+    n=0  
+    echo "$n" > "$acc_file"  
+fi
+
+# 读取acc.txt文件中的当前值  
+n=$(cat "$acc_file")  
+echo "[x]acc.txt 值为"$n
+
+#-------------这段是修改每执行一次，就更换一张壁纸-------------------
 echo "[x]Collecting information..."
-pic="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"
+pic="https://www.bing.com/HPImageArchive.aspx?format=js&idx=${n}&n=1"
 if [ "$res" != "" ]
-then pic="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&uhd=1&uhdwidth=3840&uhdheight=2160"
+then pic="https://www.bing.com/HPImageArchive.aspx?format=js&idx=${n}&n=1&uhd=1&uhdwidth=3840&uhdheight=2160"
 fi
 pic=$(wget -t 5 --no-check-certificate -qO- $pic --header="cookie:_EDGE_S=mkt=$lang")
+
+#执行完一次后，将文件内值加1，并进行输出
+echo "$((n + 1))" > "$acc_file"  
+echo "增加 acc.txt 值 to $((n + 1))"  
+#-------------修改完成，下面的内容和原来完全一致-------------------
 echo $pic|grep -q startdate||exit
 link=$(echo https://www.bing.com$(echo $pic|sed 's/.\+"url"[:" ]\+//g'|sed 's/".\+//g'))
 if [ "$res" == "raw" ]
