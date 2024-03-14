@@ -1,32 +1,28 @@
 # DSM_Login_BingWallpaper
-把脚本复制加入群晖DSM的计划任务（请选择root用户）里面即可自动更换登录界面的背景为bing今日美图，并且替换欢迎信息为美图简介.   
-Copy the script to the scheduled task of Synology DSM (please select the root user) to automatically change the background of the login interface to Bing Today's wallpaper, and replace the welcome message with wallpaper's introduction.
-![bing](https://s2.loli.net/2022/08/24/Oiz1tRuYgZjkoUe.png)  
-![scheduled](https://s2.loli.net/2022/08/24/JcPOiAgGVzIlnCW.png)  
-![login](https://s2.loli.net/2022/08/24/3KsYcP5mJHp1rRz.png)  
-Test for DSM5.x,DSM6.x. DSM 7.x 
+
+# 注意
+不要将代码直接写入到脚本处，执行可能会出错。  
+  
+# 将下载的脚本直接上传到群晖中
+  
+![脚本文件上传到群晖中.png](https://s2.loli.net/2024/03/15/SqAsFmlcK1Yp96B.jpg)
+# 然后在计划任务中填写脚本的地址来执行脚本。
+![脚本使用说明.png](https://s2.loli.net/2024/03/15/jKECAV2M3tnlqH4.jpg)
+  
+可以通过选中脚本，然后查看运行结果，正常运行应该和下来一样，就是数值不一样。
+![查看脚本执行结果.png](https://s2.loli.net/2024/03/15/9iLoI84W2vyCblq.png)
+
+
+# 登录框透明脚本
 ```sh
-# 如需收集保存壁纸,请去掉下面注释,设置保存文件夹路径
-# 在FileStation里面右键文件夹属性可以看到路径
-# If you want to collect and save Wallpapers, 
-# please remove the comment below and set the savepath.
-# Right click the folder property in FileStation to see the path.
-
-#savepath="/volume1/myshare/wallpaper"
-
-# 如需下载4k分辨率,请设置res=4k
-# 如需下载体积更大的4k以上分辨率的原始图片,请设置res=raw
-# To download 4K resolution, set res=4K
-# To download a larger original picture, set res=raw
-
-#res=4k
-
-# 修改用户桌面壁纸,注释后会替换系统的wallpaper1
-# 你需要清空浏览器缓存查看效果，仅在DSM7.x上测试.
-# Modify user desktop wallpaper.Only test for DMS7.x.
-# System "Wallpaper1" will replaced by remove the comment.
-# You need to clear the browser cache to see the effect.
-
-#desktop=yes
+<style type="text/css"> .tab-panel {background: rgba(255,255,255,0.5) !important;} .login-textfield .input-container input { background-color: transparent !important; } body {-webkit-filter:brightness(1); -o-filter:brightness(1); -moz-filter:brightness(1); filter:brightness(1);} </style>
 ```
-![save](https://s2.loli.net/2022/08/24/RWOTXV96HS37dAB.png)More info ：https://03k.org/dsm-bing.html    
+  
+使用方法：  
+将上面的脚本填入到登录样式的脚本信息里面，勾选以HTML语法显示。  
+  
+![登录框透明.png](https://s2.loli.net/2024/03/15/8pk4uiB9cHnwQVT.jpg)
+
+# 效果
+  
+![修改后效果.png](https://s2.loli.net/2024/03/15/m2eDbp6hZAgvlOd.jpg)
