@@ -189,7 +189,7 @@ fi
 
 #修改应用程序登录壁纸
 #VideoStation
-if [ "$SynologyPhotos" == "yes" ]
+if [ "$VideoStation" == "yes" ]
 then echo "[x]Applying user VideoStation wallpaper..."
 cp -f /usr/syno/etc/login_background.jpg /usr/syno/etc/SYNO.SDS.VideoStation.AppInstance_login_background.jpg
 fi
